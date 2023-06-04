@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './kata-for-fun-form.component.html'
 })
 export class KataForFunFormComponent implements OnInit {
+  @Output() submitNumberOutput : EventEmitter<number> = new EventEmitter()
+  inputNumber : number;
 
 
   constructor() {
@@ -16,6 +18,19 @@ export class KataForFunFormComponent implements OnInit {
   }
 
   submitNumber(): void {
+    if (!this.inputNumber) {
+      alert('Please add number!');
+      return;
+    }
+
+    const input: number =  this.inputNumber  
+
+  //todo emit event 
+  this.submitNumberOutput.emit(this.inputNumber)
+
+  this.inputNumber = null
+
   }
+   
 
 }

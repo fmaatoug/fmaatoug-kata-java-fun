@@ -1,3 +1,11 @@
-<div class="container"> 
-    To Be Completed
+<div class="container">
+    <form (ngSubmit)="submitNumber()">
+        <div class="form-control">
+            <label for="text">Number to convert</label>
+            <input type="text" name="inputNumber" [(ngModel)]="inputNumber" id="inputNumber" placeholder="inputNumber" />
+        </div>
+        <button type="submit" value="inputNumber" class="btn btn-block">
+            Convert
+        </button>
+    </form>
 </div>

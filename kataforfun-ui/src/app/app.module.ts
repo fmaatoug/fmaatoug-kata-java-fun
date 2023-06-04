@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { KataForFunFormComponent } from './kata-for-fun-form/kata-for-fun-form.component';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { KataForFunComponent } from './kata-for-fun/kata-for-fun.component';
 import { HomeComponent } from './home/home.component';
@@ -22,7 +23,7 @@ import { BackEndInstructionComponent } from './back-end-instruction/back-end-ins
     BackEndInstructionComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule,
+    BrowserModule, ReactiveFormsModule, HttpClientModule,FormsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },

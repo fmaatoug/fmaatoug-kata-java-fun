@@ -1,5 +1,7 @@
 package com.kata.kataforfun;
 
+import com.kata.kataforfun.services.KataForFunService;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,12 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 class KataForFunApplicationTests {
 
     @Test
-    void Should_replace_3_by_kata_given_number_contains_or_dividable_by_3(){
-
-
-
+    void Should_return_1_if_number_is_1() {
+        Assertions.assertThat(new KataForFunService().convertNumber(1)).isEqualTo("1");
     }
 
-
-
 }
+
+

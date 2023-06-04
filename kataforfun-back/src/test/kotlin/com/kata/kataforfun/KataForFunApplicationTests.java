@@ -18,6 +18,11 @@ class KataForFunApplicationTests {
         Assertions.assertThat(new KataForFunService().convertNumber(2)).isEqualTo("2");
     }
 
+    @Test
+    void Should_return_KataKata_if_number_is_3(){
+        Assertions.assertThat(new KataForFunService().convertNumber(3)).isEqualTo("KataKata");
+    }
+
 }
 
 

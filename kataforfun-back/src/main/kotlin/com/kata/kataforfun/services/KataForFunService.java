@@ -6,8 +6,7 @@ import org.springframework.stereotype.Component;
 public class KataForFunService {
 
     public String convertNumber(int number) {
-        if (number == 1) return "1";
-        return "2";
+        return String.valueOf(number);
     }
 
 }

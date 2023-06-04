@@ -37,8 +37,10 @@ public class KataForFunService {
         correspondingMatch.put('3', "Kata");
         correspondingMatch.put('5', "For");
         correspondingMatch.put('7', "Fun");
-
-        return correspondingMatch.get(c);
+        if (correspondingMatch.get(c) != null) {
+            return correspondingMatch.get(c);
+        }
+        return "";
         
     }
 

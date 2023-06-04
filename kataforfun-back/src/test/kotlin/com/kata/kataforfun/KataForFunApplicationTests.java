@@ -33,6 +33,10 @@ class KataForFunApplicationTests {
         Assertions.assertThat(new KataForFunService().convertNumber(7)).isEqualTo("Fun");
     }
 
+    @Test
+    void Should_return_Kata_if_number_is_9(){
+        Assertions.assertThat(new KataForFunService().convertNumber(9)).isEqualTo("Kata");
+    }
 
 }
 

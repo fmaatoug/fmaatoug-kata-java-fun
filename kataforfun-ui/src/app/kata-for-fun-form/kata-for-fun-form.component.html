@@ -1,11 +1,11 @@
 <div class="container">
-    <form (ngSubmit)="submitNumber()">
-        <div class="form-control">
-            <label for="text">Number to convert</label>
-            <input type="text" name="inputNumber" [(ngModel)]="inputNumber" id="inputNumber" placeholder="inputNumber" />
+    <div class="input-group" [formGroup]="kataGroup">
+        <input class="form-control" type="number" name="inputNumber" formControlName="kataNumber" 
+            id="inputNumber" placeholder="inputNumber" />
+        <div class="input-group-btn">
+            <button type="submit" class="btn btn-primary" (click)="submitNumber()" [disabled]="kataGroup.invalid" value="inputNumber">
+                Convert
+            </button>
         </div>
-        <button type="submit" value="inputNumber" class="btn btn-block">
-            Convert
-        </button>
-    </form>
+    </div>
 </div>

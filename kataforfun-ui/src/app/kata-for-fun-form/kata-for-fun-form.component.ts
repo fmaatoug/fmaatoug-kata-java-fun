@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-kata-for-fun-form',
@@ -8,9 +8,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class KataForFunFormComponent implements OnInit {
   @Output() submitNumberOutput : EventEmitter<number> = new EventEmitter()
   inputNumber : number;
+  kataGroup : FormGroup = this.formBuilder.group({
+    'kataNumber': this.formBuilder.control(null, [Validators.required])
+  })
 
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
 
   }
 
@@ -18,12 +21,12 @@ export class KataForFunFormComponent implements OnInit {
   }
 
   submitNumber(): void {
-    if (!this.inputNumber) {
+    if (!this.kataGroup.valid) {
       alert('Please add number!');
       return;
     }
 
-    const input: number =  this.inputNumber  
+    this.inputNumber =  this.kataGroup.get('kataNumber').value;
 
   //todo emit event 
   this.submitNumberOutput.emit(this.inputNumber)

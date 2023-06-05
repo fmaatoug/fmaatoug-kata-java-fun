@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { KataForFunService } from '../kata-for-fun.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-kata-for-fun',
@@ -20,7 +21,12 @@ export class KataForFunComponent implements OnInit, OnDestroy {
   //todo complete the call
   convertNumber(inputNumber: number): void {
     console.log(inputNumber)
-    this.kataForFunService.convertNumber(inputNumber).subscribe((gotresult) => this.convertedNumbers.push(  ));
+    this.kataForFunService.convertNumber(inputNumber)
+      .pipe(first())
+      .subscribe((gotresult) => this.convertedNumbers.push({
+        numberToConvert: inputNumber,
+        result: gotresult.result
+      }));
   }
 
 }
